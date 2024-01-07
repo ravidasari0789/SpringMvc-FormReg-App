@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+                            <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                            
+                                         <tr>
+                                               <th>Name</th>
+                                               <th>Email</th>
+                                               <th>Phone Number</th>
+                                               <th>Paasword</th>
+                                         </tr>
+                            </thead>
+                            <tbody>
+                                       <tr th:each="viewstudent: ${view}">
+                                             <td th:text="${viewstudent.name}"></td>
+                                             <td th:text="${viewstudent.email}"></td>
+                                             <td th:text="${viewstudent.phno}"></td>
+                                             <td th:text="${viewstudent.password}"></td>
+                                             
+                                       </tr>
+                            
+                            </tbody>
+                            </table>
+                            <a href="/">GoBack Home Page</a>
+</body>
+</html>
