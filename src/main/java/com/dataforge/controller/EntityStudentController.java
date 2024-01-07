@@ -21,21 +21,21 @@ public class EntityStudentController {
 	             private EntityStudentService entityStudentService;
 	              @GetMapping("/")
 	              public String getIndex(Model model) {
-	            	  
+	      
 	            	      model.addAttribute("studentdata", new EntityStudent());
-	            	      
+	            	     
 	            	      return "index";
 	              }
 	              
 	              @GetMapping("/regiser")
 	              public String getIndex(EntityStudent entityStudent,Model model) {
 	            	   
-	            	 
+	            	
 	            	boolean b=  entityStudentService.saveEntityStudent(entityStudent);
 	            	if(b) {
 	            	      model.addAttribute("msg", "sucessfully saved data in db");
 	            	}   
-	            	      return "index";
+	            	      return "sucess";
 	              }
 	              
 	              @GetMapping("/viewdata")
