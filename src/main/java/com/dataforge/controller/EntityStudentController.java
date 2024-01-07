@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.dataforge.entity.EntityStudent;
 import com.dataforge.service.EntityStudentService;
@@ -29,11 +31,11 @@ public class EntityStudentController {
 	              public String getIndex(EntityStudent entityStudent,Model model) {
 	            	   
 	            	 
-	            	  entityStudentService.saveEntityStudent(entityStudent);
-	            	  System.out.println(entityStudent);
-	            	      model.addAttribute("student", "sucessfully saved data in db");
-	            	      
-	            	      return "sucess";
+	            	boolean b=  entityStudentService.saveEntityStudent(entityStudent);
+	            	if(b) {
+	            	      model.addAttribute("msg", "sucessfully saved data in db");
+	            	}   
+	            	      return "index";
 	              }
 	              
 	              @GetMapping("/viewdata")
@@ -42,4 +44,12 @@ public class EntityStudentController {
 	            	  model.addAttribute("view", list);
 	            	     return "viewstudenddata";
 	              }
+	              
+	              @GetMapping("/edit")
+	              public String editstucendData(Model model) {
+	            	
+	            	  model.addAttribute("edit", new EntityStudent());
+	            	     return "edit";
+	              }
+	              
 }

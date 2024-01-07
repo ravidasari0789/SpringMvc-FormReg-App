@@ -6,7 +6,8 @@ import com.dataforge.entity.EntityStudent;
 
 public interface EntityStudentService {
 
-	           public EntityStudent saveEntityStudent(EntityStudent entity);
+	           public boolean saveEntityStudent(EntityStudent entity);
 	           
 	           public List<EntityStudent> getAllEntityStudent();
+	           
 }

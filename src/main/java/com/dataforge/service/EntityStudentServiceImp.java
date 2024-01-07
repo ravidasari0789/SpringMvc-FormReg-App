@@ -15,9 +15,10 @@ public class EntityStudentServiceImp implements EntityStudentService {
 	 private StudentRespo entityStudent;
 
 	@Override
-	public EntityStudent saveEntityStudent(EntityStudent entity) {
+	public boolean saveEntityStudent(EntityStudent entity) {
 		// TODO Auto-generated method stub
-		return entityStudent.save(entity);
+		entity= entityStudent.save(entity);
+		return entity.getId()>0;
 	}
 
 	@Override
@@ -26,4 +27,5 @@ public class EntityStudentServiceImp implements EntityStudentService {
 		return entityStudent.findAll();
 	}
 
+	
 }
