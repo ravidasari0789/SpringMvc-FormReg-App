@@ -5,7 +5,7 @@ import java.util.List;
 import com.dataforge.entity.EntityStudent;
 
 public interface EntityStudentService {
-
+                 /* EntityStudent service interface to added functionality of abstarct*/
 	           public boolean saveEntityStudent(EntityStudent entity);
 	           
 	           public List<EntityStudent> getAllEntityStudent();
