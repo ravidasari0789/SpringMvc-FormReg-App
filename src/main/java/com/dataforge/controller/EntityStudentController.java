@@ -18,15 +18,17 @@ import com.dataforge.service.EntityStudentService;
 public class EntityStudentController {
 
 	             @Autowired
+				 
 	             private EntityStudentService entityStudentService;
 	              @GetMapping("/")
+				  /*getindex function to display the home*/
 	              public String getIndex(Model model) {
 	      
 	            	      model.addAttribute("studentdata", new EntityStudent());
 	            	     
 	            	      return "index";
 	              }
-	              
+	              /*register form submition for EntityStudent*/
 	              @GetMapping("/regiser")
 	              public String getIndex(EntityStudent entityStudent,Model model) {
 	            	   
@@ -37,7 +39,7 @@ public class EntityStudentController {
 	            	}   
 	            	      return "sucess";
 	              }
-	              
+	              /*Fetch all related to entity student data*/
 	              @GetMapping("/viewdata")
 	              public String getAllstucendData(Model model) {
 	            	List<EntityStudent>  list= entityStudentService.getAllEntityStudent();
