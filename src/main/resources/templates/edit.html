@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+                       <form th:action="@{/regiser}" th:object="${studentdata}" method="post">
+                      
+                      <table>
+                                     <tbody>
+                                              <tr><td>Name</td></tr>
+                                     <tr>
+                                               <td> <input type="text"  th:field="*{name}" /></td>
+                                     </tr>
+                                                  <tr><td>email</td></tr>
+                                     <tr>
+                                               <td> <input type="text"   th:field="*{email}" /></td>
+                                     </tr>
+                                               <tr><td>phone number</td></tr>
+                                     <tr>
+                                               <td> <input type="text" th:field="*{phno}" /></td>
+                                     </tr>
+                                                  <tr><td>password</td></tr>
+                                     <tr>
+                                               <td> <input type="password" th:field="*{password}" /></td>
+                                     </tr>
+                                     <tr>
+                                               <td> <input type="submit" value="submit"/></td>
+                                     </tr>
+                                     </tbody>
+                      
+                      
+                      </table>
+                      </form>
+
+</body>
+</html>
