@@ -26,8 +26,12 @@
                                              <td th:text="${viewstudent.email}"></td>
                                              <td th:text="${viewstudent.phno}"></td>
                                              <td th:text="${viewstudent.password}"></td>
-                                     
+                                             <td><a th:href="@{/updatestudent/{id}(id=${viewstudent.id})}">Edit</a></td>
+                                             <td><a th:href="@{/deletestudent/{id}(id=${viewstudent.id})}">Delete</a></td>
                                        </tr>
+                                        
+                                                  
+                                        
                             
                             </tbody>
                             </table>
