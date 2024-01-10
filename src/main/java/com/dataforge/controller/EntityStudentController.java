@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dataforge.entity.EntityStudent;
 import com.dataforge.service.EntityStudentService;
@@ -31,15 +31,15 @@ public class EntityStudentController {
 	            	      return "index";
 	              }
 	              /*register form submition for EntityStudent*/
-	              @PostMapping("/regiser")
+	              @PostMapping("/register")
 	              public String getIndex(EntityStudent entityStudent,Model model) {
 	            	   
 	            	
-	            	boolean b=  entityStudentService.saveEntityStudent(entityStudent);
-	            	if(b) {
-	            	      model.addAttribute("msg", "sucessfully saved data in db");
-	            	}   
-	            	      return "sucess";
+	            	  entityStudentService.saveEntityStudent(entityStudent);
+	            	
+	            	      model.addAttribute("msg", "Sucessfully Saved Data");
+	            	  
+	            	      return "redirect:/";
 	              }
 	              /*Fetch all related to entity student data*/
 	              @GetMapping("/viewdata")
@@ -49,11 +49,18 @@ public class EntityStudentController {
 	            	     return "viewstudenddata";
 	              }
 	              
-	              @GetMapping(value="/updatestudent/{id}")
+	              @RequestMapping(value="/updatestudent/{id}")
 	              public String editstucendData(@PathVariable("id") int id, Model model) {
-	            	   entityStudentService.getById(id);
-	            	  model.addAttribute("update", "sucessupdate");
+	            	  EntityStudent entityStudent=  entityStudentService.getById(id);
+	            	  model.addAttribute("update", entityStudent);
 	            	     return "edit";
+	              }
+	              
+	              @RequestMapping(value="/deletestudent/{id}")
+	              public String deleteData(@PathVariable("id") int id, Model model) {
+	            	  entityStudentService.deleteById(id);
+	            	  model.addAttribute("update", "delete");
+	            	     return "redirect:/viewdata";
 	              }
 	              
 	              

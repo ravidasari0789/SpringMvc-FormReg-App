@@ -17,10 +17,10 @@ public class EntityStudentServiceImp implements EntityStudentService {
 
     /*to save the entity student data in database*/
 	@Override
-	public boolean saveEntityStudent(EntityStudent entity) {
+	public EntityStudent saveEntityStudent(EntityStudent entity) {
 		// TODO Auto-generated method stub
-		entity= entityStudent.save(entity);
-		return entity.getId()>0;
+		EntityStudent en= entityStudent.save(entity);
+		return en;
 	}
     /*to get all enttity student data from db*/
 	@Override
@@ -29,9 +29,9 @@ public class EntityStudentServiceImp implements EntityStudentService {
 		return entityStudent.findAll();
 	}
 	@Override
-	public Optional<EntityStudent> getById(int id) {
+	public EntityStudent getById(int id) {
 		
-		Optional<EntityStudent> entity=entityStudent.findById(id);
+		EntityStudent entity=entityStudent.findById(id).get();
 		return entity;
 	}
 	@Override
