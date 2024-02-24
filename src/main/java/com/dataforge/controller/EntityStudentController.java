@@ -22,6 +22,7 @@ public class EntityStudentController {
 	             @Autowired
 				 
 	             private EntityStudentService entityStudentService;
+	             /*Load home page*/
 	              @GetMapping("/")
 				  /*getindex function to display the home*/
 	              public String getIndex(Model model) {
@@ -48,14 +49,14 @@ public class EntityStudentController {
 	            	  model.addAttribute("view", list);
 	            	     return "viewstudenddata";
 	              }
-	              
+	              /*Update Stduednt details based on Id*/
 	              @RequestMapping(value="/updatestudent/{id}")
 	              public String editstucendData(@PathVariable("id") int id, Model model) {
 	            	  EntityStudent entityStudent=  entityStudentService.getById(id);
 	            	  model.addAttribute("update", entityStudent);
 	            	     return "edit";
 	              }
-	              
+	              /*delete student datat based on id*/
 	              @RequestMapping(value="/deletestudent/{id}")
 	              public String deleteData(@PathVariable("id") int id, Model model) {
 	            	  entityStudentService.deleteById(id);
