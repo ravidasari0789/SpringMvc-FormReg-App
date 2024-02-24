@@ -28,12 +28,14 @@ public class EntityStudentServiceImp implements EntityStudentService {
 		// TODO Auto-generated method stub
 		return entityStudent.findAll();
 	}
+	/*fetch the data student data based on id*/
 	@Override
 	public EntityStudent getById(int id) {
 		
 		EntityStudent entity=entityStudent.findById(id).get();
 		return entity;
 	}
+	/*delete student data*/
 	@Override
 	public void deleteById(int id) {
           entityStudent.deleteById(id);
